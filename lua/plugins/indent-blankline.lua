@@ -1,13 +1,15 @@
 local opts = {
-	scope = {
-		-- Remove annoying highlighting for current scope.
-		enabled = false,
-	},
+  scope = {
+    -- Remove highlighting for current scope.
+    enabled = false,
+  },
 }
 
 return {
-	"lukas-reineke/indent-blankline.nvim",
-	main = "ibl",
-	lazy = false,
-	opts = opts,
+  "lukas-reineke/indent-blankline.nvim",
+  lazy = false,
+  -- Lazy cannot automatically determine the main module for this plugin
+  -- (based on its name), so it needs to be specified manually.
+  main = "ibl",
+  opts = opts,
 }

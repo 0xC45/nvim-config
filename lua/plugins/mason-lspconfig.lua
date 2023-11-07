@@ -13,6 +13,8 @@ return {
   "williamboman/mason-lspconfig.nvim",
   opts = opts,
   dependencies = {
+    -- Load mason before mason-lspconfig.
+    -- Ref: https://github.com/williamboman/mason-lspconfig.nvim#setup
     "williamboman/mason.nvim"
   },
 }

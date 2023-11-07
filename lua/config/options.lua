@@ -1,6 +1,8 @@
 local opt = vim.opt
 
--- Tab / Indentation
+-----------------------
+-- Tab / Indentation --
+-----------------------
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
@@ -8,22 +10,27 @@ opt.expandtab = true
 opt.smartindent = true
 opt.wrap = false
 
--- Search
+------------
+-- Search --
+------------
 opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
 
--- Appearance
+----------------
+-- Appearance --
+----------------
 opt.number = true
 opt.relativenumber = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.cmdheight = 1
 opt.scrolloff = 10
-opt.completeopt = "menuone,noinsert,noselect"
 
--- Behaviour
+--------------
+-- Behavior --
+--------------
 opt.hidden = true
 opt.errorbells = false
 opt.swapfile = false
@@ -39,3 +46,7 @@ opt.mouse:append("a")
 opt.clipboard:append("unnamedplus")
 opt.modifiable = true
 opt.encoding = "UTF-8"
+-- menu: Display menu for completion options.
+-- menuone: Display menu even if there is only one completion option.
+-- noinsert: Do not automatically insert completion text.
+opt.completeopt = "menu,menuone,noinsert"

@@ -21,6 +21,7 @@ return {
   tag = "0.1.4",
   lazy = false,
   config = config,
+  -- Configure key mappings.
   keys = {
     mapkey("<leader>fk", "Telescope keymaps", "n"),
     mapkey("<leader>fh", "Telescope help_tags", "n"),
@@ -29,6 +30,8 @@ return {
     mapkey("<leader>fb", "Telescope buffers", "n"),
   },
   dependencies = {
+    -- Plenary is a required dependency.
+    -- Ref: https://github.com/nvim-telescope/telescope.nvim#required-dependencies
     "nvim-lua/plenary.nvim"
   },
 }
