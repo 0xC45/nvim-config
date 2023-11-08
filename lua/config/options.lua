@@ -1,8 +1,8 @@
 local opt = vim.opt
 
------------------------
--- Tab / Indentation --
------------------------
+------------------------
+-- Tabs / Indentation --
+------------------------
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
@@ -37,16 +37,10 @@ opt.swapfile = false
 opt.backup = false
 opt.undodir = vim.fn.expand("~/.cache/nvim/undodir")
 opt.undofile = true
-opt.backspace = "indent,eol,start"
 opt.splitright = true
 opt.splitbelow = true
 opt.autochdir = false
 opt.iskeyword:append("-")
 opt.mouse:append("a")
 opt.clipboard:append("unnamedplus")
-opt.modifiable = true
-opt.encoding = "UTF-8"
--- menu: Display menu for completion options.
--- menuone: Display menu even if there is only one completion option.
--- noinsert: Do not automatically insert completion text.
 opt.completeopt = "menu,menuone,noinsert"

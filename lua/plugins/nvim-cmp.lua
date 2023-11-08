@@ -12,20 +12,13 @@ local config = function()
     },
     -- Configure keyboard mappings.
     mapping = cmp.mapping.preset.insert({
-      -- Go to previous suggestion.
-      ["<C-p>"] = cmp.mapping.select_prev_item(),
-      -- Go to next suggestion.
-      ["<C-n>"] = cmp.mapping.select_next_item(),
-      -- Scroll up docs window.
-      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-      -- Scroll down docs window.
-      ["<C-f>"] = cmp.mapping.scroll_docs(4), --
-      -- Show completion suggestions.
-      ["<C-a>"] = cmp.mapping.complete(),
-      -- Close completion menu.
-      ["<C-e>"] = cmp.mapping.abort(),
-      -- Confirm completion selection.
-      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+      ["<C-a>"] = cmp.mapping.complete(),                 -- show completions
+      ["<C-e>"] = cmp.mapping.abort(),                    -- close completions
+      ["<C-p>"] = cmp.mapping.select_prev_item(),         -- previous suggestion
+      ["<C-n>"] = cmp.mapping.select_next_item(),         -- next suggestion
+      ["<C-y>"] = cmp.mapping.confirm({ select = true }), -- confirm selection
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),            -- scroll up docs
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),             -- scroll down docs
     }),
     -- Specify completion sources.
     sources = cmp.config.sources({
@@ -62,6 +55,29 @@ local config = function()
     -- I prefer to either manually select an option or just use the first option.
     preselect = cmp.PreselectMode.None,
   })
+
+  -- Setup "/" cmdline completions.
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Setup ":" cmdline completions.
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      {
+        name = 'cmdline',
+        option = {
+          ignore_cmds = { 'Man', '!' }
+        }
+      }
+    })
+  })
 end
 
 return {
@@ -83,5 +99,7 @@ return {
     "hrsh7th/cmp-buffer",
     -- Provide "path" source for filesystem path completions.
     "hrsh7th/cmp-path",
+    -- Provide completions for command mode ("/" and ":")
+    "hrsh7th/cmp-cmdline"
   },
 }

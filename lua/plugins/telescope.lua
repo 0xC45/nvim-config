@@ -1,5 +1,3 @@
-local mapkey = require("util.keymapper").mapkey
-
 local config = function()
   local telescope = require("telescope")
   telescope.setup({
@@ -21,14 +19,6 @@ return {
   tag = "0.1.4",
   lazy = false,
   config = config,
-  -- Configure key mappings.
-  keys = {
-    mapkey("<leader>fk", "Telescope keymaps", "n"),
-    mapkey("<leader>fh", "Telescope help_tags", "n"),
-    mapkey("<leader>ff", "Telescope find_files", "n"),
-    mapkey("<leader>fg", "Telescope live_grep", "n"),
-    mapkey("<leader>fb", "Telescope buffers", "n"),
-  },
   dependencies = {
     -- Plenary is a required dependency.
     -- Ref: https://github.com/nvim-telescope/telescope.nvim#required-dependencies
